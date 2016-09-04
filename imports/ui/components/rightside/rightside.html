@@ -1,0 +1,17 @@
+<template name="rightSide">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>No Prédio</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each inBuilding}}
+        <tr>
+          <td id="select"> <button class="btn-link">{{ nome }}</button> </td>
+        </tr>
+      {{/each}}
+    </tbody>
+
+  </table>
+</template>

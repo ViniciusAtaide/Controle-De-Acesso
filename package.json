@@ -1,0 +1,51 @@
+{
+  "name": "cda",
+  "private": true,
+  "scripts": {
+    "start": "meteor run",
+    "lint": "eslint .",
+    "pretest": "npm run lint --silent"
+  },
+  "dependencies": {
+    "meteor-node-stubs": "~0.2.0",
+    "moment": "^2.14.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.1.2",
+    "babel-plugin-transform-class-properties": "^6.11.5",
+    "eslint": "^3.4.0",
+    "eslint-config-airbnb": "^10.0.1",
+    "eslint-import-resolver-meteor": "^0.3.3",
+    "eslint-plugin-flowtype": "^2.11.4",
+    "eslint-plugin-import": "^1.14.0",
+    "eslint-plugin-jsx-a11y": "^2.2.0",
+    "eslint-plugin-meteor": "^4.0.0",
+    "eslint-plugin-react": "^6.2.0",
+    "flow-bin": "^0.31.1"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "allowImportExportEverywhere": true
+    },
+    "plugins": [
+      "meteor",
+      "flowtype"
+    ],
+    "extends": [
+      "airbnb",
+      "plugin:meteor/recommended"
+    ],
+    "settings": {
+      "import/resolver": "meteor",
+      "flowtype": {
+        "onlyFilesWithFlowAnnotations": false
+      }
+    },
+    "rules": {
+      "meteor/no-session": 0,
+      "import/no-extraneous-dependencies": 0,
+      "no-underscore-dangle": 0
+    }
+  }
+}

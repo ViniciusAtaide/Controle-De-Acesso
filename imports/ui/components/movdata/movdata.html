@@ -1,0 +1,44 @@
+<template name="movData">
+  {{#if user}}
+
+    <div class="page-header text-center">
+      <h4>Movimentação</h4>
+    </div>
+
+    <form id="movData" class="entryForm">
+      <label for="motivo">Motivo</label>
+      <input type="text" id="motivo" class="form-control" placeholder="Motivo" />
+
+      <label for="gabinete">Gabinete</label>
+      <select id="gabinete" class="form-control">
+        {{#each gabinetes}}
+          <option>{{procurador}}</option>
+        {{/each}}
+      </select>
+      <input type="submit" id="cadastrar" value="Cadastrar {{#if noPredio}}Saída{{else}}Entrada{{/if}}" class="btn btn-default center-block form-control"/>
+    </form>
+  {{/if}}
+
+  <div class="page-header text-center">
+    <h4>Últimas movimentações</h4>
+  </div>
+  <div class="table-mov">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Hora</th>
+          <th>Nome</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {{#each history}}
+          <tr>
+            <td>{{ data.toLocaleTimeString 'pt-BR' }} ({{tipo}})</td>
+            <td>{{ nome }}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</template>

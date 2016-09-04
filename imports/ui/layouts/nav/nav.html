@@ -1,0 +1,23 @@
+<template name="nav">
+    <div class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" type="button" data-target="menu" data-toggle="collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <img alt="PRPB - Aplicações" src="/images/brasao2.gif" height="35"/>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="nav navbar-nav">
+                    <li class="{{ activeIfPathIs '/' }}"><a href="{{ pathFor 'entryHandling' }}">Cadastro de Acessos</a></li>
+                    <li class="{{ activeIfPathIs '/visitantes' }}'"><a href="{{ pathFor 'entryReport' }}">Relatórios Visitantes</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</template>

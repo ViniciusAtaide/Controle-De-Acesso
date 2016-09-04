@@ -1,0 +1,21 @@
+<template name="entryData">
+    <div class="page-header text-center">
+      <h4>Detalhes</h4>
+    </div>
+    <form id="entryDataForm" class="entryForm">
+      <table class="table table-striped table-hover">
+
+        <input type="text" class="form-control" id="nome" value="{{ currentVisitor.nome }}" placeholder="Nome"/>
+        <input type="text" class="form-control" id="documento" value="{{ currentVisitor.doc }}"
+               placeholder="Documento"/>
+
+        {{#if currentVisitor.foto }}
+          <img width="300" height="220" class="center-block" src="{{currentVisitor.foto}}" alt="pic"/>
+        {{/if}}
+
+        <button class="btn btn-block btn-link btn-photo" id="takePicture">{{#if currentVisitor.foto }}Mudar{{else}}Tirar{{/if}} Foto</button>
+
+        <input type="submit" value="Remover" class="btn btn-primary center-block"/>
+      </table>
+    </form>
+</template>

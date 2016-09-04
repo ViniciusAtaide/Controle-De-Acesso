@@ -1,0 +1,33 @@
+<template name="entryReport">
+  <div class="row well">
+    <div class="page-header text-center">
+      <div class="col-sm-6">
+        <h4>Movimentação por Dia</h4>
+      </div>
+      <div class="col-sm-6">
+        <div class="input-group datetimepicker">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+          <input class="form-control" id="movement" placeholder="Anteriores" type="text"/>
+        </div>
+      </div>
+    </div>
+    <table class="table table-hover table-striped">
+      <thead>
+      <tr>
+        <th>Hora</th>
+        <th>Nome</th>
+        <th>Tipo</th>
+        <th>Motivo</th>
+      </tr>
+        {{#each history}}
+          <tr>
+            <td>{{data}}</td>
+            <td>{{nome}}</td>
+            <td>{{tipo}}</td>
+            <td>{{motivo}}</td>
+          </tr>
+        {{/each}}
+      </thead>
+    </table>
+  </div>
+</template>
