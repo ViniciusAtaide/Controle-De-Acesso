@@ -1,4 +1,4 @@
-/* env browser */
+/* eslint-env browser */
 
 import { Router } from 'meteor/iron:router';
 import '../ui/layouts';

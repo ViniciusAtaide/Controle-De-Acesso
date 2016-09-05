@@ -1,9 +1,9 @@
 /* global document */
 
-import { _ } from 'meteor/underscore';
 import { Template } from 'meteor/templating';
 import { Blaze } from 'meteor/blaze';
 import { Tracker } from 'meteor/tracker';
+import { _ } from 'meteor/underscore';
 
 const withDiv = (callback) => {
   const el = document.createElement('div');

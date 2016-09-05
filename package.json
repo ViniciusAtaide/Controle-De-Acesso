@@ -3,8 +3,10 @@
   "private": true,
   "scripts": {
     "start": "meteor run",
+    "pretest": "npm run lint --silent",
     "lint": "eslint .",
-    "pretest": "npm run lint --silent"
+    "test": "meteor test --once --driver-package dispatch:mocha-phantomjs",
+    "test:watch": "TEST_WATCH=1 meteor test --driver-package dispatch:mocha-phantomjs"
   },
   "dependencies": {
     "meteor-node-stubs": "~0.2.0",
@@ -20,7 +22,9 @@
     "eslint-plugin-import": "^1.14.0",
     "eslint-plugin-jsx-a11y": "^2.2.0",
     "eslint-plugin-meteor": "^4.0.0",
+    "eslint-plugin-mocha": "^4.5.1",
     "eslint-plugin-react": "^6.2.0",
+    "faker": "^3.1.0",
     "flow-bin": "^0.31.1"
   },
   "eslintConfig": {
@@ -30,7 +34,8 @@
     },
     "plugins": [
       "meteor",
-      "flowtype"
+      "flowtype",
+      "mocha"
     ],
     "extends": [
       "airbnb",
@@ -43,9 +48,10 @@
       }
     },
     "rules": {
-      "meteor/no-session": 0,
-      "import/no-extraneous-dependencies": 0,
-      "no-underscore-dangle": 0
+        "meteor/no-session": 0,
+        "import/no-extraneous-dependencies": 0,
+        "no-underscore-dangle": 0,
+        "mocha/no-exclusive-tests": "error"
     }
   }
 }
