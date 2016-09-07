@@ -6,7 +6,9 @@
     "pretest": "npm run lint --silent",
     "lint": "eslint .",
     "test": "meteor test --once --driver-package dispatch:mocha-phantomjs",
-    "test:watch": "TEST_WATCH=1 meteor test --driver-package dispatch:mocha-phantomjs"
+    "test:watch": "TEST_WATCH=1 meteor test --driver-package dispatch:mocha-phantomjs",
+    "chimp-watch": "chimp --ddp=http://localhost:3000 --watch --mocha --path=tests",
+    "chimp-test": "chimp --mocha --path=tests"
   },
   "dependencies": {
     "meteor-node-stubs": "~0.2.0",
