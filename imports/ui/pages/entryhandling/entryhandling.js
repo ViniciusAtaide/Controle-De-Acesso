@@ -9,5 +9,7 @@ Template.entryHandling.events({
 });
 
 Template.entryHandling.helpers({
-  isSearching: () => !(Session.equals('currentVisitor')),
+  isSearching: () =>
+    Session.get('currentVisitor') !== null ||
+    Session.get('currentVisitor') !== undefined,
 });

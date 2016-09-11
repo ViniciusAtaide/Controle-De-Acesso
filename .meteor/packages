@@ -31,3 +31,5 @@ practicalmeteor:mocha
 dispatch:mocha
 dispatch:mocha-phantomjs
 hwillson:stub-collections
+insecure
+autopublish

@@ -21,5 +21,6 @@ export default (template, data, callback) => {
     Blaze.renderWithData(ourTemplate, data, el);
     Tracker.flush();
     callback(el);
+    ca
   });
 };

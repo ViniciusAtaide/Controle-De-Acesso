@@ -8,6 +8,8 @@ Factory.define('visitor', Visitors, {
   pic: faker.image.avatar(),
 });
 
+
+
 Factory.define('gabinete', Gabinetes, {
   procurador: faker.name.firstName(),
 });
