@@ -1,5 +1,4 @@
 import { Template } from 'meteor/templating';
-import { Visitors } from '/imports/collections';
 import { Session } from 'meteor/session';
 
 import './search.html';
@@ -19,7 +18,7 @@ Template.search.events({
   'click #choose': function selectVisitor() {
     Session.set('currentVisitor', this._id);
   },
-  'click #newVisitor': () => {
-    Session.set('currentVisitor', Visitors.insert({ noPredio: false }));
+  'click #newVisitor': (event, templateInstance) => {
+    Session.set('currentVisitor', { noPredio: false });
   },
 });

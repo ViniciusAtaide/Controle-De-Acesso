@@ -50,10 +50,10 @@
       }
     },
     "rules": {
-        "meteor/no-session": 0,
-        "import/no-extraneous-dependencies": 0,
-        "no-underscore-dangle": 0,
-        "mocha/no-exclusive-tests": "error"
+      "meteor/no-session": 0,
+      "import/no-extraneous-dependencies": 0,
+      "no-underscore-dangle": 0,
+      "mocha/no-exclusive-tests": "error"
     }
   }
 }

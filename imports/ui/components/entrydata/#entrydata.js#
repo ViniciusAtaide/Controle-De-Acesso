@@ -37,12 +37,11 @@ Template.entryData.events({
   'click #takePicture': (event) => {
     event.preventDefault();
     const visitor = Session.get('currentVisitor');
-    
     MeteorCamera.getPicture((error, data) => Object.assign(visitor, { foto: data }));
   },
   'submit #entryDataForm': (event) => {
     event.preventDefault();
 
-    Session.set('currentVisitor', null);
+    Visitors.insert(Session.get('currentVisitor'));
   },
 });
