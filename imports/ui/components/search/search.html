@@ -5,7 +5,6 @@
   </div>
   <div class="input-group">
     <input type="text" class="form-control" name="search" id="search" placeholder="Buscar {{ currentFieldSearch }}">
-
     <div class="input-group-btn">
       <button id="newVisitor" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i></button>
     </div>
@@ -20,7 +19,7 @@
     {{#each result}}
       <tr>
         <td>
-          <button class="btn-link list-visitor" id="choose">{{nome}}</button>
+          <button class="btn-link list-visitor">{{nome}}</button>
         </td>
       </tr>
     {{/each}}

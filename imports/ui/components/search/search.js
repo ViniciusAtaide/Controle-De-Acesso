@@ -1,7 +1,10 @@
 import { Template } from 'meteor/templating';
 import { Session } from 'meteor/session';
+import { Visitors } from '/imports/collections';
 
 import './search.html';
+
+Session.setDefault('currentVisitor', null);
 
 Template.search.helpers({
   result: () =>
@@ -15,10 +18,10 @@ Template.search.helpers({
 });
 
 Template.search.events({
-  'click #choose': function selectVisitor() {
-    Session.set('currentVisitor', this._id);
+  'click .list-visitor': function selectVisitor() {
+    Session.set('currentVisitor', this);
   },
   'click #newVisitor': (event, templateInstance) => {
-    Session.set('currentVisitor', { noPredio: false });
+    Session.set('currentVisitor', Object.assign({}, { noPredio: false }));
   },
 });

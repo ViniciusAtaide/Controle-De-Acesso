@@ -8,7 +8,9 @@
     <tbody>
       {{#each inBuilding}}
         <tr>
-          <td class="select"> <button class="btn-link">{{ nome }}</button> </td>
+          <td select="select">
+	    <button class="btn-link">{{ nome }}</button>
+	  </td>
         </tr>
       {{/each}}
     </tbody>
