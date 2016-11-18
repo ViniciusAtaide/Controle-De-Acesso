@@ -7,18 +7,28 @@ Meteor.methods({
   'visitors.insert'(visitor) {
     Visitors.insert(visitor);
   },
-  'visitor.update'(id, gabinete, motivo) {
-    const visitor = Visitors.findOne(id);
-    const currentDate = new Date();
+  'visitor.entry'(id, gabinete, motivo) {
+    if (!(Visitors.findOne(id).noPredio)) {
+      Visitors.update(id, { $set: { noPredio: true } });
 
-    Visitors.update(id, { $set: { noPredio: !visitor.noPredio } });
+      History.insert({
+        nome: Visitors.findOne(id).nome,
+        data: new Date(),
+        motivo,
+        gabinete,
+        tipo: 'Entrada',
+      });
+    }
+  },
+  'visitor.out'(id) {
+    if (Visitors.findOne(id).noPredio) {
+      Visitors.update(id, { $set: { noPredio: false } });
 
-    History.insert({
-      nome: visitor.nome,
-      data: currentDate,
-      motivo,
-      gabinete,
-      tipo: visitor.noPredio ? 'Saida' : 'Entrada',
-    });
+      History.insert({
+        nome: Visitors.findOne(id).nome,
+        data: new Date(),
+        tipo: 'Saida'
+      });
+    }
   },
 });

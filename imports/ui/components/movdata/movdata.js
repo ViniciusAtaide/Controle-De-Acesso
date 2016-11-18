@@ -10,7 +10,7 @@ Template.movData.helpers({
 
   gabinetes: () => Gabinetes.find(),
 
-  user: () => Session.get('currentVisitor'),
+  currentVisitor: () => Session.get('currentVisitor'),
 
   history: () => History.find({ data: {
     $gte: Session.get('startdate'),
@@ -20,13 +20,19 @@ Template.movData.helpers({
 
 Template.movData.events({
   'submit #movData': function movData(event, templateInstance) {
+    debugger;
     event.preventDefault();
+    const visitor = Session.get('currentVisitor');    
 
-    const gabineteId = templateInstance.find("#gabinete").value;
-    const visitor = Session.get('currentVisitor');
-    const gabinete = Gabinetes.findOne(gabineteId);
-    const motivo = templateInstance.find('#motivo').value;
+    if (templateInstance.find('#gabinete')) {
+      const gabineteId = templateInstance.find("#gabinete").value;
+      const gabinete = Gabinetes.findOne(gabineteId);
+      const motivo = templateInstance.find('#motivo').value;
+    }
 
-    Meteor.call('visitor.update', visitor._id, gabinete, motivo);
+    if (!visitor.noPredio)
+      Meteor.call('visitor.entry', visitor._id, gabinete, motivo);
+    else
+      Meteor.call('visitor.out', visitor._id);
   },
 });

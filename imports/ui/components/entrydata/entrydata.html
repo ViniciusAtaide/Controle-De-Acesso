@@ -4,7 +4,7 @@
     </div>
     <form id="entryDataForm" class="entryForm">
       <table class="table table-striped table-hover">
-	{{#with currentVisitor }}
+	      {{#with currentVisitor }}
         <input type="text" class="form-control" id="nome" value="{{ nome }}" placeholder="Nome"/>
         <input type="text" class="form-control" id="documento" value="{{ doc }}" placeholder="Documento"/>
 
@@ -12,12 +12,11 @@
           <img width="300" height="220" class="center-block" src="{{foto}}" alt="pic"/>
         {{/if}}
         <button class="btn btn-block btn-link btn-photo" id="takePicture">{{#if foto }}Mudar{{else}}Tirar{{/if}} Foto</button>
-	{{/with}}
-	<div class="input-group col-xs-12">
-
-	  <button class="btn btn-danger" id="removeVisitor">Cancelar</button>
-	  <input type="submit" value="Adicionar" class="btn btn-primary pull-right"/>
-	</div>
+	      {{/with}}
+      <div class="input-group col-xs-12">
+        <button class="btn btn-danger" id="removeVisitor">Cancelar</button>
+        <input type="submit" value="{{#if currentVisitor._id}} Alterar {{else}} Adicionar {{/if}}" class="btn btn-primary pull-right"/>
+      </div>
 
       </table>
     </form>

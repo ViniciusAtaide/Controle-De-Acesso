@@ -1,12 +1,12 @@
 <template name="movData">
-  {{#if user}}
+  {{#if currentVisitor}}
     <div class="page-header text-center">
       <h4>Movimentação</h4>
     </div>
 
     <form id="movData" class="entryForm">
       <label for="motivo">Motivo</label>
-      {{#unless user.noPredio}}
+      {{#unless currentVisitor.noPredio}}
       <input type="text" id="motivo" class="form-control" placeholder="Motivo" />
 
       <label for="gabinete">Gabinete</label>
@@ -16,7 +16,7 @@
         {{/each}}
       </select>
       {{/unless}}
-      <input type="submit" id="cadastrar" value="Cadastrar {{#if user.noPredio}}Saída{{else}}Entrada{{/if}}" class="btn btn-default center-block form-control"/>
+      <input type="submit" id="cadastrar" value="Cadastrar {{#if currentVisitor.noPredio}}Saida{{else}}Entrada{{/if}}" class="btn btn-default center-block form-control"/>
     </form>
   {{/if}}
 
