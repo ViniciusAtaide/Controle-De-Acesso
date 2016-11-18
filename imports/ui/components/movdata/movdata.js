@@ -20,11 +20,12 @@ Template.movData.helpers({
 
 Template.movData.events({
   'submit #movData': function movData(event, templateInstance) {
-    const visitor = Session.get('currentVisitor');
-    const gabinete = Gabinetes.findOne(this._id);
-    const motivo = templateInstance.find('#motivo').value;
-
     event.preventDefault();
+
+    const gabineteId = templateInstance.find("#gabinete").value;
+    const visitor = Session.get('currentVisitor');
+    const gabinete = Gabinetes.findOne(gabineteId);
+    const motivo = templateInstance.find('#motivo').value;
 
     Meteor.call('visitor.update', visitor._id, gabinete, motivo);
   },

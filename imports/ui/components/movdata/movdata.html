@@ -6,6 +6,7 @@
 
     <form id="movData" class="entryForm">
       <label for="motivo">Motivo</label>
+      {{#unless user.noPredio}}
       <input type="text" id="motivo" class="form-control" placeholder="Motivo" />
 
       <label for="gabinete">Gabinete</label>
@@ -14,6 +15,7 @@
           <option>{{procurador}}</option>
         {{/each}}
       </select>
+      {{/unless}}
       <input type="submit" id="cadastrar" value="Cadastrar {{#if user.noPredio}}Saída{{else}}Entrada{{/if}}" class="btn btn-default center-block form-control"/>
     </form>
   {{/if}}
