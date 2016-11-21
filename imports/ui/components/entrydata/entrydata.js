@@ -31,7 +31,7 @@ Template.entryData.events({
   'submit #entryDataForm': (event) => {
     event.preventDefault();
 
-    Meteor.call('visitors.insert', Session.get('currentVisitor'));
+    Meteor.call('visitors.upsert', Session.get('currentVisitor'));
   },
   'click #removeVisitor': (event, templateInstance) => {
     Session.set('currentVisitor', null);
